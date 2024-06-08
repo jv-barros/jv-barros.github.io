@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio João Vitor Barros</title>
+  <!-- Google Fonts -->
+  <link rel="icon" type="imagem/png" href="https://i.imgur.com/jEvXmA9.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;0,900;1,300;1,700;1,900&display=swap" rel="stylesheet">
+  <!-- Dev Icon Fonts -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@master/devicon.min.css">
+  <!-- CSS do Projeto -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main id="container">
+    <aside id="bio-container">
+      <h2>João Vitor Barros</h2>
+      <img id="bio-image" src="img/profile.jpeg" alt="João Vitor Barros">
+      <p>Hi, my name is João Vitor Barros and I'm a <span class="highlight">FullStack Developer</span>.</p>
+      <p id="welcome-text">Welcome!</p>
+      <ul id="social-container">
+        <li><a href="https://www.linkedin.com/in/jo%C3%A3o-vitor-carvalho-barros-7500a9222/" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a></li>
+        <li><a href="https://www.linkedin.com/in/jo%C3%A3o-vitor-carvalho-barros-7500a9222/" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+        <li><a href="https://www.linkedin.com/in/jo%C3%A3o-vitor-carvalho-barros-7500a9222/" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a></li>
+      </ul>
+      <div id="email-container">
+        <ion-icon name="mail-outline"></ion-icon><a href="mailto:jvcbcarvalho@gmail.com.br">jvcbcarvalho@gmail.com.br</a>
+      </div>
+    </aside>
+    <section id="about-container">
+      <h1 id="name">João Vitor Barros</h1>
+      <p id="title"><span class="highlight">FullStack Developer</span></p>
+      <p class="description">I'm a developer focused on education and like to participate in the project from the <span class="highlight">definition of business rules and requirements gathering</span> to the <span class="highlight">deployment of the application</span>.</p>
+      <p class="description">I work both on the <span class="highlight">front-end</span> and the <span class="highlight">back-end</span>, and I love technology and study every day to get better and write quality code.</p>
+      <br>
+      <div class="botoes" style="display: block">
+        <a href="https://github.com/joao-vitor-carvalho" id="btn-projects"><ion-icon name="share-social-outline"></ion-icon> <span>See Projects</span></a>
+        <a href="https://joao-vitor-carvalho.github.io/joao-vitor-carvalho-en.github.io/" id="btn-projects"> <ion-icon name="asterisk"></ion-icon><span>Veja em Português</span></a>
+        <a onClick="openPdf()" id="btn-projects"><ion-icon name="download"></ion-icon><span>Resume in PDF</span></a>
+        <a href="https://api.whatsapp.com/send?phone=5561992525843&text=Ol%C3%A1,%20Jo%C3%A3o!%20Estou%20entrando%20em%20contato%20atrav%C3%A9s%20do%20seu%20Portif%C3%B3lio,%20pelo%20link%20https://joao-vitor-carvalho.github.io/%20" id="btn-projects"> <ion-icon name="logo-whatsapp"></ion-icon> <span> WhatsApp </span> </a>
+      </div>
+            <br>
+      <div id="consultoria" style="display: block">
+        <h2 id="skills-section-title">Professional Experience</h2>
+        <p class="description">I'm a mostly <span class="highlight">developer of software</span>. Furthermore, I have too experience with <span class="highlight">remote support analyst </span> and <span class="highlight"> social media, others areas which I like.</span>
+        <br><br>
+        <p class="description">
+          IT Experience:<br><br>  
+            4 years as <span class="highlight">FullStack Developer</span><br> 
+        </p>
+      </div>
+      <br>
+      <h2 id="skills-section-title">My Skills</h2>
+      <p class="description">Know technologies with I work and worked:</p>
+      <div id="skills-container">
+        <div class="skills-box">
+          <p class="skills-title">Front-end</p>
+          <i class="devicon-html5-plain colored"></i>
+          <i class="devicon-css3-plain colored"></i>
+          <i class="devicon-javascript-plain colored"></i>
+        </div>
+        <div class="skills-box">
+          <p class="skills-title">Back-end</p>
+          <i class="devicon-php-plain colored"></i>
+          <i class="devicon-nodejs-plain colored"></i>
+          <i class="devicon-python-plain colored"></i>
+        </div>
+        <div class="skills-box">
+          <p class="skills-title">Databases</p>
+          <i class="devicon-mysql-plain colored"></i>
+          <i class="devicon-postgresql-plain-wordmark"></i>
+          <!-- <i class="devicon-mongodb-plain colored"></i> -->
+        </div>
+        <div class="skills-box">
+          <p class="skills-title">Front-end Frameworks</p>
+          <i class="devicon-react-plain colored"></i>
+          <i class="devicon-vuejs-plain colored"></i>
+          <i class="devicon-flutter-plain colored"></i>
+          <i class="devicon-angularjs-plain colored"></i>
+          <i class="devicon-bootstrap-plain colored"></i>
+        </div>
+        <div class="skills-box">
+          <p class="skills-title">Back-end Frameworks</p>
+          <i class="devicon-laravel-plain colored"></i>
+          <i class="devicon-django-plain colored"></i>
+          <i class="devicon-zend-plain colored"></i>
+        </div>
+        <div class="skills-box">
+          <p class="skills-title">Tools</p>
+          <i class="devicon-linux-plain"></i>
+          <i class="devicon-github-original"></i>
+          <!-- <i class="devicon-docker-plain colored"></i> -->
+        </div>
+      </div>
+      <br>
+      <div id="consultoria" style="display: block">
+        <h2 id="skills-section-title">Consultancy</h2>
+        <p class="description">As<span class="highlight"> IT Professional</span> and <span class="highlight">Analytics</span>, 
+        I work for satisfactory delivery <br> to my customers with low cost and the shortest possible time.<br> 
+        <br> Since the development of <span class="highlight">websites</span> and <span class="highlight">social medias</span> to business leverage strategies. <br>
+        <p class="description">
+          Some services provided:<br><br>  
+            Development of the <span class="highlight">landing pages</span><br> 
+            Development of the <span class="highlight">sites</span><br> 
+            <span class="highlight">Business Analytics</span><br> 
+            <span class="highlight">Development of the software</span>
+            Social Media <span class="highlight">Manager</span><br>
+        </p>
+      </div>
+      <br>
+      <div id="footer">
+        <h2 id="skills-section-title">Partners</h2>
+        <ul>
+          <a href="https://lldistribuidora.com.br" id="btn-projects"><ion-icon name="share"></ion-icon> <span>Distribuidora L&L</span></a>
+          <a href="https://tabacariall.com.br" id="btn-projects"><ion-icon name="share"></ion-icon> <span>Tabacaria L&L</span></a>
+          <a href="https://bdci.tv/author/joaocarvalho/" id="btn-projects"><ion-icon name="share"></ion-icon> <span>BDCi</span></a><br><br><br>
+          <a href="https://www.facebook.com/reel/948714696462929" id="btn-projects"><ion-icon name="share"></ion-icon> <span>Filosofia Jovem Podcast</span></a>
+          <a href="https://ourosistemas.com.br/" id="btn-projects"><ion-icon name="share"></ion-icon> <span>Ouro Sistemas</span></a>
+          <a href="https://jvcbcarvalho.wixsite.com/website" id="btn-projects"><ion-icon name="share"></ion-icon> <span>Filux</span></a><br><br><br>
+          <a href="http://mariliaromagueira.com/" id="btn-projects"><ion-icon name="share"></ion-icon> <span>Marília Romagueira</span></a>
+      </div>
+    </section>
+  </main>
+  <!-- Ion Icons -->
+  <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+  <script>
+    function openPdf(){
+    window.open("Curriculo_Joao_Carvalho_2023.pdf");
+    }
+    
+  </script>
+</body>
+</html>
