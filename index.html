@@ -1,136 +1,721 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio João Vitor Barros</title>
-  <!-- Google Fonts -->
-  <link rel="icon" type="imagem/png" href="https://i.imgur.com/jEvXmA9.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;0,900;1,300;1,700;1,900&display=swap" rel="stylesheet">
-  <!-- Dev Icon Fonts -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@master/devicon.min.css">
-  <!-- CSS do Projeto -->
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-  <main id="container">
-    <aside id="bio-container">
-      <h2>João Vitor Barros</h2>
-      <img id="bio-image" src="img/profile.jpeg" alt="João Vitor Barros">
-      <p>Hi, my name is João Vitor Barros and I'm a <span class="highlight">FullStack Developer</span>.</p>
-      <p id="welcome-text">Welcome!</p>
-      <ul id="social-container">
-        <li><a href="https://www.linkedin.com/in/jo%C3%A3o-vitor-carvalho-barros-7500a9222/" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a></li>
-        <li><a href="https://www.linkedin.com/in/jo%C3%A3o-vitor-carvalho-barros-7500a9222/" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-        <li><a href="https://www.linkedin.com/in/jo%C3%A3o-vitor-carvalho-barros-7500a9222/" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a></li>
-      </ul>
-      <div id="email-container">
-        <ion-icon name="mail-outline"></ion-icon><a href="mailto:jvcbcarvalho@gmail.com.br">jvcbcarvalho@gmail.com.br</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* General Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Quicksand", sans-serif;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      :root {
+        --bg-color: #ffffff;
+        --text-color: #333333;
+        --accent-color: #4caf50;
+      }
+
+      [data-theme="dark"] {
+        --bg-color: #1e1e2f;
+        --text-color: #ffffff;
+        --accent-color: #ff6f61;
+      }
+
+      /* Header */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background-color: var(--accent-color);
+        color: #fff;
+      }
+
+      header .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      header .menu-btn {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: #fff;
+      }
+
+      nav {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 600;
+        transition: color 0.3s;
+      }
+
+      nav a:hover {
+        color: #000;
+      }
+
+      .theme-switcher {
+        cursor: pointer;
+        font-size: 1.2rem;
+      }
+
+      /* Social Links */
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .social-links a {
+        color: var(--text-color);
+        font-size: 1.5rem;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .social-links a:hover {
+        color: var(--accent-color);
+      }
+
+      /* Main Section */
+      main {
+        flex: 1;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      main h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--accent-color);
+      }
+
+      main p {
+        font-size: 1.2rem;
+        line-height: 1.5;
+      }
+
+      #photo {
+        margin: 2rem 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #photo img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid var(--accent-color);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+      }
+
+      #photo img:hover {
+        transform: scale(1.1);
+      }
+
+      /* Experience Section */
+      #experience {
+        width: 100%;
+        max-width: 800px;
+        text-align: left;
+      }
+
+      #experience h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        text-align: center;
+        color: var(--accent-color);
+      }
+
+      .experience-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .experience-item {
+        padding: 1.5rem;
+        border: 1px solid var(--accent-color);
+        border-radius: 8px;
+        /* background-color: #f9f9f9; */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .experience-item h3 {
+        margin: 0;
+        font-size: 1.5rem;
+        color: var(--accent-color);
+      }
+
+      .experience-item p {
+        margin: 0.5rem 0;
+        font-size: 1rem;
+        line-height: 1.4;
+      }
+
+      /* Skills Section */
+      #skills {
+        width: 100%;
+        max-width: 800px;
+        text-align: center;
+        margin-top: 3rem;
+      }
+
+      #skills h2 {
+        font-size: 2rem;
+        color: var(--accent-color);
+        margin-bottom: 1.5rem;
+      }
+
+      .skills-list {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .skill-item {
+        text-align: center;
+        font-size: 1.2rem;
+      }
+
+      .skill-item i {
+        font-size: 3rem;
+        color: var(--accent-color);
+        margin-bottom: 1rem;
+      }
+
+      /* Projects Section */
+      #projects {
+        width: 100%;
+        max-width: 1000px;
+        text-align: center;
+        margin-top: 3rem;
+      }
+
+      #projects h2 {
+        font-size: 2.5rem;
+        color: var(--accent-color);
+        margin-bottom: 2rem;
+      }
+
+      .projects-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-between; /* Adjust alignment */
+      }
+
+      .project-item {
+        flex: 1 1 calc(33.333% - 20px); /* 3 items per row */
+        display: flex;
+        flex-direction: column; /* Ensure elements stack vertically */
+        align-items: center; /* Center content horizontally */
+        text-align: center;
+        box-sizing: border-box;
+      }
+
+      .project-item a {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        height: 100%; /* Ensures equal height for all items */
+      }
+
+      .project-item .images {
+        position: relative;
+      }
+
+      .project-item .top-image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .project-item .bottom-images {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .project-item .bottom-images img {
+        width: 48%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .project-item h3 {
+        margin-top: 1rem;
+        font-size: 1.3rem;
+        color: var(--accent-color);
+      }
+
+      .view-button {
+        margin-top: auto; /* Pushes the button to the bottom */
+        padding: 10px 20px;
+        background-color: grey;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .view-button:hover {
+        background-color: var(--accent-color);
+      }
+
+      .project-description {
+        flex-grow: 1; /* Makes the description take up remaining space */
+        margin: 10px 0;
+      }
+
+      #study-certificates {
+        padding: 40px 20px;
+        /* background-color: #f8f9fa; */
+      }
+
+      #study-certificates h2 {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 30px;
+        color: var(--accent-color);
+      }
+
+      .study-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .study-item {
+        display: flex;
+        align-items: center;
+        /* background-color: #fff; */
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border: 1px solid var(--accent-color);
+      }
+
+      .study-logo {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-right: 20px;
+        object-fit: cover;
+      }
+
+      .study-content h3 {
+        font-size: 1.5rem;
+        margin: 0 0 10px;
+        color: var(--accent-color);
+      }
+
+      .study-content p {
+        font-size: 1rem;
+        margin: 0 0 5px;
+      }
+
+      .study-date {
+        font-size: 0.9rem;
+        color: #6c757d;
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 1rem;
+        background-color: var(--accent-color);
+        color: #fff;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        header .menu-btn {
+          display: block;
+        }
+
+        .menu-btn {
+          display: block;
+        }
+
+        /* Hide the nav menu by default on mobile */
+        nav {
+          display: none;
+          position: absolute;
+          top: 60px;
+          left: 0;
+          width: 100%;
+          background-color: #333;
+          z-index: 100;
+        }
+
+        /* Show the nav when active */
+        nav.active {
+          display: block;
+        }
+
+        /* Stack the navigation links vertically */
+        nav a {
+          display: block;
+          padding: 10px 20px;
+          text-align: center;
+          border-bottom: 1px solid #ddd;
+          color: white;
+          text-decoration: none;
+        }
+
+        nav a:hover {
+          background-color: #575757;
+        }
+
+        /* Adjust the layout of the Experience section */
+        .experience-section {
+          padding: 20px 0; /* Reduced padding for mobile */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <div class="logo">Meu Portfólio</div>
+      <button class="menu-btn" aria-label="Toggle Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav>
+        <a href="#about">Sobre</a>
+        <a href="#experience">Experiência</a>
+        <a href="#skills">Habilidades</a>
+        <a href="#projects">Projetos</a>
+        <a
+          href="https://api.whatsapp.com/send?phone=5561992525843&text=Ol%C3%A1,%20Jo%C3%A3o!%20Estou%20entrando%20em%20contato%20atrav%C3%A9s%20do%20seu%20Portif%C3%B3lio,%20pelo%20link%20https://jv-barros.github.io/%20"
+          >Contato</a
+        >
+        <a href="https://jv-barros.github.io/jv-barros-en.github.io/">EN-US</a>
+        <a href="./Curriculo_Joao_Carvalho_2024.pdf">Currículo em PDF</a>
+      </nav>
+      <div class="theme-switcher" aria-label="Switch Theme">
+        <i class="fas fa-moon"></i>
       </div>
-    </aside>
-    <section id="about-container">
-      <h1 id="name">João Vitor Barros</h1>
-      <p id="title"><span class="highlight">FullStack Developer</span></p>
-      <p class="description">I'm a developer focused on education and like to participate in the project from the <span class="highlight">definition of business rules and requirements gathering</span> to the <span class="highlight">deployment of the application</span>.</p>
-      <p class="description">I work both on the <span class="highlight">front-end</span> and the <span class="highlight">back-end</span>, and I love technology and study every day to get better and write quality code.</p>
-      <br>
-      <div class="botoes" style="display: block">
-        <a href="https://github.com/jv-barros" id="btn-projects"><ion-icon name="share-social-outline"></ion-icon> <span>See Projects</span></a>
-        <a href="https://jv-barros.github.io/jv-barros-en.github.io/" id="btn-projects"> <ion-icon name="asterisk"></ion-icon><span>Veja em Português</span></a>
-        <a onClick="openPdf()" id="btn-projects"><ion-icon name="download"></ion-icon><span>Resume in PDF</span></a>
-        <a href="https://api.whatsapp.com/send?phone=5561992525843&text=Ol%C3%A1,%20Jo%C3%A3o!%20Estou%20entrando%20em%20contato%20atrav%C3%A9s%20do%20seu%20Portif%C3%B3lio,%20pelo%20link%20https://jv-barros.github.io/%20" id="btn-projects"> <ion-icon name="logo-whatsapp"></ion-icon> <span> WhatsApp </span> </a>
-      </div>
-            <br>
-      <div id="consultoria" style="display: block">
-        <h2 id="skills-section-title">Professional Experience</h2>
-        <p class="description">I'm a mostly <span class="highlight">developer of software</span>. Furthermore, I have too experience with <span class="highlight">remote support analyst </span> and <span class="highlight"> social media, others areas which I like.</span>
-        <br><br>
-        <p class="description">
-          IT Experience:<br><br>  
-            5 years as <span class="highlight">FullStack Developer</span><br> 
+    </header>
+
+    <!-- Main Section -->
+    <main>
+      <section id="about">
+        <h1>Bem-vindo ao meu Portfólio</h1>
+        <p>
+          Explore meu projetos, Habilidades e experiências. Vamos criar algo incrível juntos!
         </p>
+        <div id="photo">
+          <img src="./fotor-20241123184035.png" alt="Profile Photo" />
+        </div>
+      </section>
+
+      <!-- Social Links -->
+      <div class="social-links">
+        <a
+          href="https://www.linkedin.com/in/jo%C3%A3o-vitor-carvalho-barros-7500a9222/"
+          target="_blank"
+          aria-label="LinkedIn"
+        >
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a
+          href="https://api.whatsapp.com/send?phone=5561992525843&text=Ol%C3%A1,%20Jo%C3%A3o!%20Estou%20entrando%20em%20contato%20atrav%C3%A9s%20do%20seu%20Portif%C3%B3lio,%20pelo%20link%20https://jv-barros.github.io/%20"
+          target="_blank"
+          aria-label="WhatsApp"
+        >
+          <i class="fab fa-whatsapp"></i>
+        </a>
       </div>
-      <br>
-      <h2 id="skills-section-title">My Skills</h2>
-      <p class="description">Know technologies with I work and worked:</p>
-      <div id="skills-container">
-        <div class="skills-box">
-          <p class="skills-title">Front-end</p>
-          <i class="devicon-html5-plain colored"></i>
-          <i class="devicon-css3-plain colored"></i>
-          <i class="devicon-javascript-plain colored"></i>
+
+      <!-- Projects Section -->
+      <section id="projects">
+        <h2>Projetos</h2>
+        <div class="projects-list">
+          <!-- Website A -->
+          <div class="project-item">
+            <!-- <a href="https://tabacariall.com.br/" target="_blank"> -->
+            <div class="images">
+              <!-- Third image above the first two -->
+              <img
+                src="./ll-image1.png"
+                alt="Website A Image 3"
+                class="top-image"
+              />
+              <div class="bottom-images">
+                <img src="./ll-image2.png" alt="Website A Image 1" />
+                <img src="./ll-image3.png" alt="Website A Image 2" />
+              </div>
+            </div>
+            <h3>E-commerce</h3>
+            <div class="project-description">
+              <p>
+                Este projeto envolveu a construção de uma plataforma de e-commerce responsiva
+                com navegação fácil de usar e integração com um ambiente seguro
+                portal de pagamento.
+              </p>
+            </div>
+            <button
+              class="view-button"
+              onclick="window.location.href='https://tabacariall.com.br/'"
+            >
+              Veja E-commerce
+            </button>
+            <!-- </a> -->
+          </div>
+
+          <!-- Website B -->
+          <div class="project-item">
+            <!-- <a href="https://www.exampleB.com" target="_blank"> -->
+            <div class="images">
+              <!-- Third image above the first two -->
+              <img
+                src="./up-image1.png"
+                alt="Website B Image 3"
+                class="top-image"
+              />
+              <div class="bottom-images">
+                <img src="./up-image2.png" alt="Website B Image 1" />
+                <img src="./up-image3.png" alt="Website B Image 2" />
+              </div>
+            </div>
+            <h3>Marketing</h3>
+            <div class="project-description">
+              <p>
+                Um site de portfólio desenvolvido para uma agência criativa, apresentando
+                seu trabalho com animações, galerias interativas e detalhes
+                estudos de caso.
+              </p>
+            </div>
+            <button
+              class="view-button"
+              onclick="window.location.href='https://upinovacao.com/'"
+            >
+              Marketing
+            </button>
+            <!-- </a> -->
+          </div>
+
+          <!-- Website C -->
+          <div class="project-item">
+            <!-- <a href="https://www.exampleC.com" target="_blank"> -->
+            <div class="images">
+              <!-- Third image above the first two -->
+              <img
+                src="./orion-image1.png"
+                alt="Website C Image 3"
+                class="top-image"
+              />
+              <div class="bottom-images">
+                <img src="./orion-image2.png" alt="Website C Image 1" />
+                <img src="./orion-image3.png" alt="Website C Image 2" />
+              </div>
+            </div>
+            <h3>Business Intelligence</h3>
+            <div class="project-description">
+              <p>
+                Entregue uma solução de BI e RPA com painéis em tempo real e
+                processos automatizados, agilizando operações e permitindo
+                tomada de decisão baseada em dados para desempenho otimizado.
+              </p>
+            </div>
+            <button
+              class="view-button"
+              onclick="window.location.href='https://orionbi.com.br/'"
+            >
+              Business Intelligence
+            </button>
+            <!-- </a> -->
+          </div>
         </div>
-        <div class="skills-box">
-          <p class="skills-title">Back-end</p>
-          <i class="devicon-php-plain colored"></i>
-          <i class="devicon-nodejs-plain colored"></i>
-          <i class="devicon-python-plain colored"></i>
+      </section>
+
+      <br />
+      <!-- Skills Section -->
+      <section id="skills">
+        <h2>Habilidades como Desenvolvedor</h2>
+        <div class="skills-list">
+          <div class="skill-item">
+            <i class="fab fa-js-square"></i>
+            <p>JavaScript</p>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-python"></i>
+            <p>Python</p>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-html5"></i>
+            <p>HTML5</p>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-css3-alt"></i>
+            <p>CSS3</p>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-github"></i>
+            <p>GitHub</p>
+          </div>
         </div>
-        <div class="skills-box">
-          <p class="skills-title">Databases</p>
-          <i class="devicon-mysql-plain colored"></i>
-          <i class="devicon-postgresql-plain-wordmark"></i>
-          <!-- <i class="devicon-mongodb-plain colored"></i> -->
+      </section>
+      <br />
+      <section id="experience">
+        <h2>Minhas Experiências</h2>
+        <div class="experience-list">
+          <article class="experience-item">
+            <h3>RPA Developer</h3>
+            <p><strong>Empresa:</strong> Invisual Tecnologia</p>
+            <p><strong>Duração:</strong> Dez 2023 - Atual</p>
+            <p>DDesenvolvimento de automação para otimização de processos humanos.</p>
+          </article>
+          <article class="experience-item">
+            <h3>Web Developer</h3>
+            <p><strong>Empresas:</strong> L&L and Upper Host</p>
+            <p><strong>Duração:</strong> Fev 2023 - Dez 2023</p>
+            <p>
+              Desenvolvimento de software, portais, landing pages, páginas de dashboard
+              e muito mais.
+            </p>
+          </article>
+          <article class="experience-item">
+            <h3>Full Stack Developer</h3>
+            <p><strong>Empresas:</strong>Huoli and ProEmpresa</p>
+            <p><strong>Duração:</strong> Jan 2021 - Jan 2023</p>
+            <p>
+              Ajuda no desenvolvimento do sistema, aplicativos e software. Escrever
+              documentação dos sistemas desenvolvidos. Modelagem de sistemas. Entender
+              manutenção e monitoramento do progresso de novas funções do
+              sistemas.
+            </p>
+          </article>
         </div>
-        <div class="skills-box">
-          <p class="skills-title">Front-end Frameworks</p>
-          <i class="devicon-react-plain colored"></i>
-          <i class="devicon-vuejs-plain colored"></i>
-          <i class="devicon-flutter-plain colored"></i>
-          <i class="devicon-angularjs-plain colored"></i>
-          <i class="devicon-bootstrap-plain colored"></i>
+      </section>
+
+      <!-- Study and Certificates Section -->
+      <section id="study-certificates">
+        <h2>Estudos e Certificações</h2>
+        <div class="study-list">
+          <!-- Certificate A -->
+          <div class="study-item">
+            <!-- <img
+              src="https://via.placeholder.com/100x100"
+              alt="Certificate B Logo"
+              class="study-logo"
+            /> -->
+            <div class="study-content">
+              <h3>Treinamento DevOps</h3>
+              <p>
+                Concluiu um curso de DevOps cobrindo pipelines de CI/CD, Docker,
+                Kubernetes, infraestrutura em nuvem, integrações de API e ferramentas de IA
+                para aprimorar a automação, escalabilidade e desempenho em software
+                entrega.
+              </p>
+              <span class="study-date">Publicado: Novembro 2024</span>
+            </div>
+          </div>
+
+          <!-- Certificate B -->
+          <div class="study-item">
+            <!-- <img
+              src="https://via.placeholder.com/100x100"
+              alt="Certificate A Logo"
+              class="study-logo"
+            /> -->
+            <div class="study-content">
+              <h3>Full Stack Development</h3>
+              <p>
+                Concluiu um curso abrangente de desenvolvimento Full Stack cobrindo
+                HTML, CSS, JavaScript, React, Node.js e integração de banco de dados.
+              </p>
+              <span class="study-date">Publicado: July 2023</span>
+            </div>
+          </div>
+
+          <!-- Certificate C -->
+          <div class="study-item">
+            <!-- <img
+              src="https://via.placeholder.com/100x100"
+              alt="Certificate C Logo"
+              class="study-logo"
+            /> -->
+            <div class="study-content">
+              <h3>Database Administration</h3>
+              <p>
+                Concluiu um curso de DBA especializado em gerenciamento de banco de dados,
+                otimização e segurança, com experiência prática em SQL,
+                NoSQL e integrações de API.
+              </p>
+              <span class="study-date">Publicado: Dezembro 2021</span>
+            </div>
+          </div>
         </div>
-        <div class="skills-box">
-          <p class="skills-title">Back-end Frameworks</p>
-          <i class="devicon-laravel-plain colored"></i>
-          <i class="devicon-django-plain colored"></i>
-          <i class="devicon-zend-plain colored"></i>
-        </div>
-        <div class="skills-box">
-          <p class="skills-title">Tools</p>
-          <i class="devicon-linux-plain"></i>
-          <i class="devicon-github-original"></i>
-          <!-- <i class="devicon-docker-plain colored"></i> -->
-        </div>
-      </div>
-      <br>
-      <div id="consultoria" style="display: block">
-        <h2 id="skills-section-title">Consultancy</h2>
-        <p class="description">As<span class="highlight"> IT Professional</span> and <span class="highlight">Analytics</span>, 
-        I work for satisfactory delivery <br> to my customers with low cost and the shortest possible time.<br> 
-        <br> Since the development of <span class="highlight">websites</span> and <span class="highlight">social medias</span> to business leverage strategies. <br>
-        <p class="description">
-          Some services provided:<br><br>  
-            Robotic Process Automation <span class="highlight">(RPA)</span> development<br>
-            Development of the <span class="highlight">landing pages</span><br> 
-            Development of the <span class="highlight">sites</span><br> 
-            <span class="highlight">Business Analytics</span><br> 
-            <span class="highlight">Development of the software</span>
-        </p>
-      </div>
-      <br>
-      <div id="footer">
-        <h2 id="skills-section-title">Portfolio</h2>
-        <ul>
-          <!-- <a href="https://lldistribuidora.com.br" id="btn-projects"><ion-icon name="share"></ion-icon> <span>Distribuidora L&L</span></a> -->
-          <a href="https://upinovacao.com/" id="btn-projects"><ion-icon name="share"></ion-icon> <span>UP Inovação</span></a>
-          <a href="https://orionbi.com.br/" id="btn-projects"><ion-icon name="share"></ion-icon> <span>BI</span></a>
-          <a href="https://tabacariall.com.br" id="btn-projects"><ion-icon name="share"></ion-icon> <span>E-commerce</span></a>
-          <a href="https://bdci.tv/author/joaocarvalho/" id="btn-projects"><ion-icon name="share"></ion-icon> <span>News</span></a><br><br><br>
-          <a href="https://www.facebook.com/reel/948714696462929" id="btn-projects"><ion-icon name="share"></ion-icon> <span>Podcast</span></a>
-          <!-- <a href="https://ourosistemas.com.br/" id="btn-projects"><ion-icon name="share"></ion-icon> <span>Ouro Sistemas</span></a>
-          <a href="https://jvcbcarvalho.wixsite.com/website" id="btn-projects"><ion-icon name="share"></ion-icon> <span>Filux</span></a><br><br><br>
-          <a href="https://mariliaromagueira.wixsite.com/mariliaromagueira?fbclid=PAZXh0bgNhZW0CMTEAAaYg_ei2PG7Pv1xtcMqg16TqQ9lRpv5specWK5gDMgJWiN-rIQ8BuN2dSZE_aem_vNh1SYfTq4HSoZvsV0QKLA" id="btn-projects"><ion-icon name="share"></ion-icon> <span>Marília Romagueira</span></a> -->
-      </div>
-    </section>
-  </main>
-  <!-- Ion Icons -->
-  <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
-  <script>
-    function openPdf(){
-    window.open("Curriculo_Joao_Carvalho_2024.pdf");
-    }
-    
-  </script>
-</body>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 João Barros</p>
+    </footer>
+
+    <script>
+      // Toggle Dark Mode
+      // Theme switcher functionality
+      document
+        .querySelector(".theme-switcher")
+        .addEventListener("click", function () {
+          document.body.dataset.theme =
+            document.body.dataset.theme === "dark" ? "" : "dark";
+        });
+
+      // Mobile menu toggle functionality
+      document
+        .querySelector(".menu-btn")
+        .addEventListener("click", function () {
+          const nav = document.querySelector("nav");
+          nav.classList.toggle("active");
+        });
+    </script>
+  </body>
 </html>
